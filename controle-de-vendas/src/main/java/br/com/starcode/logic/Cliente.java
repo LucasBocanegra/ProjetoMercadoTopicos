@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 
 public class Cliente {
 	
-	public static final int Ativo = 1;
-	public static final int Inativo = 0;
+	private final int Ativo = 1;
+	private final int Inativo = 0;
 
 	private String nome;
 	private String cpf;
@@ -127,7 +127,7 @@ public class Cliente {
 
 	public void setStatus(int status)throws RuntimeException {
 		
-		if(status == Cliente.Ativo || status == Cliente.Inativo)
+		if(status == Ativo || status == Inativo)
 			this.status = status;
 		else
 			throw new RuntimeException();

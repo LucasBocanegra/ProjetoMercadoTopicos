@@ -28,12 +28,17 @@ public class RegistroVenda {
 		setProdutos(produtos);
 	}
 	
-	public RegistroVenda(String info){
+	public RegistroVenda(String stringRegVenda){
 		/*String info = numero do registro de venda, CPF do cliente, data da
-		venda, c´odigo do produto 1, quantidade do produto 1, c´odigo do produto
+		venda, codigo do produto 1, quantidade do produto 1, c´odigo do produto
 		2, quantidade do produto 2, ..., c´odigo do produto n, quantidade do
 		produto n, separado por ";" cada item*/
 		
+		String n[] = stringRegVenda.split(";");
+		
+		setNumero(Integer.parseInt(n[0]));
+		setData(n[2]);
+			
 	}
 
 	public int getNumero() {
@@ -138,4 +143,15 @@ public class RegistroVenda {
 		}
 		
 	}
+	
+	/*funcao que calcula o valor total da compra*/
+	public double valorTotalCompra()
+	{
+		double fat = 0.0;
+		for(int i =0;i<quantidadeItens;i++){
+			fat += produtos.get(i).getPrecoVenda()*quantidades.get(i);			
+		}
+		return fat;
+	}
+	
 }
