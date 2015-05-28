@@ -1,0 +1,16 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import br.com.starcode.logic.RegistroVenda;
+
+
+public class FastTest {
+
+	@Test(expected = RuntimeException.class)
+	public void testDataReg() {
+		RegistroVenda reg = new RegistroVenda();
+		reg.setData("201313/03/2015");
+	}
+
+}

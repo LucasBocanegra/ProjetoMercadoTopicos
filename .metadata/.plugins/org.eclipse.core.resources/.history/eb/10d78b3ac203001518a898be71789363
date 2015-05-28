@@ -1,0 +1,79 @@
+package br.com.starcode.logic;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+public class RegistroVenda {
+	
+	private int numero;
+	private Date data;
+	private int quantidadeItens;
+	private int[] quantidades;
+	
+	private Cliente cliente; //cpf do cliente
+	private ArrayList<Produto> produtos;	//produtos comprados pelo cliente
+	
+	public RegistroVenda(int numero, Date data, int quantidadeItens,
+			int[] quantidades, Cliente cliente, ArrayList<Produto> produtos) {
+		
+		this.numero = numero;
+		this.data = data;
+		this.quantidadeItens = quantidadeItens;
+		this.quantidades = quantidades;
+		this.cliente = cliente;
+		this.produtos = produtos;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public int getQuantidadeItens() {
+		return quantidadeItens;
+	}
+
+	public void setQuantidadeItens(int quantidadeItens) {
+		this.quantidadeItens = quantidadeItens;
+	}
+
+	public int[] getQuantidades() {
+		return quantidades;
+	}
+
+	public void setQuantidades(int[] quantidades) {
+		this.quantidades = quantidades;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public ArrayList<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(ArrayList<Produto> produtos) {
+		this.produtos = produtos;
+	}
+	
+	
+	
+
+	
+}
