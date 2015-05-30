@@ -8,7 +8,7 @@ public class Mercado {
 	private ArrayList<Produto> produtos;
 	private ArrayList<RegistroVenda> registrosVendas;
 	
-	public Mercado() {
+	public Mercado() throws RuntimeException {
 		
 		clientes = new ArrayList<Cliente>();
 		produtos = new ArrayList<Produto>();
@@ -32,7 +32,7 @@ public class Mercado {
 	}	
 
 	
-	public ArrayList<Integer> consultaProdutos(String descricao){
+	public ArrayList<Integer> consultaProdutos(String descricao) throws RuntimeException{
 		ArrayList<Integer> p =  new ArrayList<Integer>();
 		for (Produto prod : produtos) {
 			if(prod.getDescricao().indexOf(descricao) == 0)
@@ -44,7 +44,7 @@ public class Mercado {
 		return p;
 	} 
 	
-	public void cadastrarCliente(Cliente c){
+	public void cadastrarCliente(Cliente c)throws RuntimeException{
 		this.clientes.add(c);
 	}
 	
@@ -89,7 +89,7 @@ public class Mercado {
 	}
 	
 	
-	public void cadastrarRegistroVenda(RegistroVenda reg){
+	public void cadastrarRegistroVenda(RegistroVenda reg)throws RuntimeException{
 		this.registrosVendas.add(reg);
 	}
 	
@@ -112,7 +112,7 @@ public class Mercado {
 	}
 	
 	/* verifica se no vetor de produtos cadastras existe algum produto com o codigo passado pelo parametro*/
-	public boolean existeProtudo(int codigo){
+	public boolean existeProtudo(int codigo)throws RuntimeException{
 		boolean existe = false;
 		for (Produto p : produtos) {
 			if(p.getCodigo() == codigo)
@@ -121,7 +121,7 @@ public class Mercado {
 		return existe;
 	}
 	/* verifica se no vetor de clientes cadastrados existe algum cliente com o cpf passado pelo parametro*/
-	public boolean existeCliente(String cpf){
+	public boolean existeCliente(String cpf)throws RuntimeException{
 		boolean existe = false;
 		for (Cliente c : clientes) {
 			if(c.getCpf().equalsIgnoreCase(cpf))
@@ -130,27 +130,55 @@ public class Mercado {
 		return existe;
 	}
 	
-	public ArrayList<Cliente> getClientes() {
+	public Cliente getCliente(String cpf) throws RuntimeException{
+		Cliente cliente =  null;
+		
+		if(existeCliente(cpf)){			
+			for (Cliente c : clientes) {
+				if(c.getCpf().equalsIgnoreCase(cpf))
+					cliente = c;
+			}
+			return  cliente;
+		}else
+			throw new RuntimeException();
+	}
+	
+	public Produto getProduto(int codigo) throws RuntimeException{
+		Produto prod =  null;
+		
+		if(existeProtudo(codigo)){			
+			for (Produto p : produtos) {
+				if(p.getCodigo() == codigo)
+					prod = p;
+			}
+			return  prod;
+			
+		}else
+			throw new RuntimeException();
+	}
+	
+	
+	public ArrayList<Cliente> getClientes()throws RuntimeException {
 		return clientes;
 	}
 
-	public void setClientes(ArrayList<Cliente> clientes) {
+	public void setClientes(ArrayList<Cliente> clientes)throws RuntimeException {
 		this.clientes = clientes;
 	}
 
-	public ArrayList<Produto> getProdutos() {
+	public ArrayList<Produto> getProdutos()throws RuntimeException {
 		return produtos;
 	}
 
-	public void setProdutos(ArrayList<Produto> produtos) {
+	public void setProdutos(ArrayList<Produto> produtos)throws RuntimeException {
 		this.produtos = produtos;
 	}
 
-	public ArrayList<RegistroVenda> getregistrosVendas() {
+	public ArrayList<RegistroVenda> getregistrosVendas()throws RuntimeException {
 		return registrosVendas;
 	}
 
-	public void setregistrosVendas(ArrayList<RegistroVenda> registrosVendas) {
+	public void setregistrosVendas(ArrayList<RegistroVenda> registrosVendas) throws RuntimeException{
 		this.registrosVendas = registrosVendas;
 	}
 	

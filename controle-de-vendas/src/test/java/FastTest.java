@@ -35,4 +35,5 @@ public class FastTest {
 		else
 			assert(false);		
 	}
+	
 }

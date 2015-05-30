@@ -28,7 +28,7 @@ public class Produto {
 	}
 	
 	public void alteraProduto(int codigo, String descricao, double precoCompra, double precoVenda,
-			String unidade, double estoque, int status){
+			String unidade, double estoque, int status)throws RuntimeException{
 		
 		setCodigo(codigo);
 		setDescricao(descricao);
@@ -55,16 +55,16 @@ public class Produto {
 	}
 		
 
-	public int getCodigo() {
+	public int getCodigo()throws RuntimeException {
 		return codigo;
 	}
 	
 	//codigo nao pode ser repetido
-	public void setCodigo(int codigo) {
+	public void setCodigo(int codigo) throws RuntimeException{
 		this.codigo = codigo;
 	}
 
-	public String getDescricao() {
+	public String getDescricao()throws RuntimeException {
 		return descricao;
 	}
 
@@ -75,7 +75,7 @@ public class Produto {
 			throw new RuntimeException();
 	}
 
-	public double getPrecoCompra() {
+	public double getPrecoCompra()throws RuntimeException {
 		return precoCompra;
 	}
 
@@ -86,7 +86,7 @@ public class Produto {
 			throw new RuntimeException();
 	}	
 
-	public double getPrecoVenda() {
+	public double getPrecoVenda() throws RuntimeException{
 		return precoVenda;
 	}
 
