@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import br.com.starcode.logic.Mercado;
 import br.com.starcode.logic.Produto;
 
 public class Teste_Inclusão_Produto{
@@ -22,7 +23,11 @@ public class Teste_Inclusão_Produto{
 	
 	@Test(expected = Exception.class)
 	public void CTPI3() {
+		Mercado m = new Mercado();
+		m.cadastrarProduto(new Produto(0,"Arroz",5.00,6.99,"Un",10,1));
+		
 		produto = new Produto(0,"Arroz",5.00,6.99,"Un",10,1);
+		m.cadastrarProduto(produto);
 	}
 	
 	@Test(expected = Exception.class)
@@ -32,7 +37,7 @@ public class Teste_Inclusão_Produto{
 	
 	@Test(expected = Exception.class)
 	public void CTPI5() {
-		produto = new Produto(1,"Abcdefghijklmnopqrstuvwxyz123456789abcdefghijklmnopqrstuvwxyz",
+		produto = new Produto(1,"Abcdefghijklmnopqrstuvwxyz123456789abcdefghijklmnopqrstuvwxyzaabcdefg",
 					5.00,6.99,"Un",10,1);
 	}
 	
@@ -71,19 +76,19 @@ public class Teste_Inclusão_Produto{
 		produto = new Produto(1,"Arroz",5.00,6.99,"Un",10,3);
 	}
 	
-	@Test(expected = Exception.class)
+	@Test
 	public void CTPI13() {
 		produto = new Produto(1,"Arroz",5.00,6.99,"Un",0,0);
 	}
 	
-	@Test(expected = Exception.class)
+	@Test
 	public void CTPI14() {
 		produto = new Produto(1,"Arroz",5.00,6.99,"Un",0,1);
 	}
 	
 	@Test(expected = Exception.class)
 	public void CTPI15() {
-		produto = new Produto(2,"abc",5.00,6.99,"Un",10,1);
+		produto = new Produto(2,"ab",5.00,6.99,"Un",10,1);
 	}
 	
 	@Test()
@@ -110,17 +115,17 @@ public class Teste_Inclusão_Produto{
 		assertEquals(produto.getCodigo(),3);
 	}
 	
-	@Test(expected = Exception.class)
+	@Test
 	public void CTPI20() {
 		produto = new Produto(4,"Arroz",0.00,6.99,"Un",10,1);
 	}
 	
 	@Test(expected = Exception.class)
 	public void CTPI21() {
-		produto = new Produto(4,"Arroz",0.01,0.01,"Un",10,1);
+		produto = new Produto(4,"Arroz",0.01,0.01,"U",10,1);
 	}
 	
-	@Test(expected = Exception.class)
+	@Test
 	public void CTPI22() {
 		produto = new Produto(5,"Arroz",5.00,6.99,"Un",10,1);
 	}

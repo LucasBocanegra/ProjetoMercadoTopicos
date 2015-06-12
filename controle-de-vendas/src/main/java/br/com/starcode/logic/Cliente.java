@@ -22,8 +22,8 @@ public class Cliente {
 		setNome(nome);
 		setCpf(cpf);
 		setEndereco(endereco);
-		setTelefone(telefone);
-		setEmail(email);
+		//setTelefone(telefone);
+		//setEmail(email);
 		setStatus(status);
 	}
 	
@@ -33,7 +33,7 @@ public class Cliente {
 		setNome(nome);
 		setCpf(cpf);
 		setEndereco(endereco);
-		setTelefone(telefone);
+		//setTelefone(telefone);
 		setEmail(email);
 		setStatus(status);		
 	}
@@ -43,12 +43,14 @@ public class Cliente {
 	}
 
 	public void setNome(String nome)throws RuntimeException {
-		String n[] = new String[2];
+		String n[];
 		if(nome.length() >= 5 && nome.length() <= 128){
 			//particiona o nome em prenome e sobrenome
+			
 			n = nome.split(" ");
+			
 			//se existir o segundo nome e tiver 2 letras no min
-			if(!n[2].isEmpty() && n[2].length() == 2){
+			if(n.length > 1 && n[0].length() >= 2 && n[1].length() >= 2){
 				this.nome = nome;
 			}else
 				throw new RuntimeException();			
@@ -87,11 +89,14 @@ public class Cliente {
 		Pattern pattern = Pattern.compile("(\\d{2})\\d{9}");
 	    Matcher matcher = pattern.matcher(telefone);
 	     
-		if(matcher.matches()){			
-			this.telefone = telefone;
-		}else
-			throw new RuntimeException();
-		
+	    try{
+	    	if(matcher.matches())		
+				this.telefone = telefone;
+	    	else
+	    		throw new RuntimeException();
+				
+	    }catch(Exception e){
+			throw new RuntimeException();	}	
 	}
 
 	public String getEmail() {

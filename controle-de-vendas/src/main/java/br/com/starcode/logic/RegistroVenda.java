@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.management.RuntimeErrorException;
+
 public class RegistroVenda {
 	
 	private int numero;
@@ -45,23 +47,26 @@ public class RegistroVenda {
 		2, quantidade do produto 2, ..., código do produto n, quantidade do
 		produto n, separado por ";" cada item*/
 		
-		int quantidadeItens = 0;
-		String n[] = stringRegVenda.split(";");
-		
-		setNumero(Integer.parseInt(n[0]));
-		/*obs: só com o cpf não eh possivel instanciar um cliente,
-		 * é preciso ou indicar um obj Cliente ou o obj Mercado para a partir dele conseguir o obj Cliente*/
-		
-		setData(n[2]);
-				
-		quantidadeItens = (n.length-3)/2;
-		setQuantidadeItens(quantidadeItens);
-		
-		for(int i = 3;i<n.length;i++){
-			/*somente com o código do produto nao é possivel instanciar um produto
-			 * é necessário indicar os objs produtos, ou o obj Mercado para a partir dele conseguir o objs Produtos
-			 * */
-		}			
+		try{
+			int quantidadeItens = 0;
+			String n[] = stringRegVenda.split(";");
+			
+			setNumero(Integer.parseInt(n[0]));
+			/*obs: só com o cpf não eh possivel instanciar um cliente,
+			 * é preciso ou indicar um obj Cliente ou o obj Mercado para a partir dele conseguir o obj Cliente*/
+			
+			setData(n[2]);
+					
+			quantidadeItens = (n.length-3)/2;
+			setQuantidadeItens(quantidadeItens);
+			
+			for(int i = 3;i<n.length;i++){
+				/*somente com o código do produto nao é possivel instanciar um produto
+				 * é necessário indicar os objs produtos, ou o obj Mercado para a partir dele conseguir o objs Produtos
+				 * */
+			}			
+		}catch(Exception e){throw new RuntimeException();}
+	
 	}
 
 	public RegistroVenda(String stringRegVenda, Mercado m) throws RuntimeException{
@@ -213,7 +218,7 @@ public class RegistroVenda {
 			{
 				/* Se existe produto em estoque e se o produto existe no mercado (classe mercado)*/
 				if(produtos.get(i).getEstoque() < quantidades.get(i) &&
-						m.existeProtudo(produtos.get(i).getCodigo())){
+						m.existeProduto(produtos.get(i).getCodigo())){
 					prodOk = false;
 					break;
 				}

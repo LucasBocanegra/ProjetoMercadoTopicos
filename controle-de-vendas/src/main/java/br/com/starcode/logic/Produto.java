@@ -5,6 +5,8 @@
 
 package br.com.starcode.logic;
 
+import javax.management.RuntimeErrorException;
+
 public class Produto {
 	
 	private int codigo;
@@ -72,9 +74,23 @@ public class Produto {
 	}
 
 	public void setDescricao(String descricao) throws RuntimeException {
-		if(descricao.length() >= 3 && descricao.length() <= 64)
-			this.descricao = descricao;
-		else
+		boolean ok = true;
+		
+		if(descricao.length() >= 3 && descricao.length() <= 64){
+			
+			for (char c : descricao.toCharArray()) {
+				if (!(c >= 48 && c <=57 || 
+						c >= 65 && c <= 90 ||
+							c >=97 && c <= 122))
+					ok = false;
+					
+			}
+		
+			if(ok == true)			
+				this.descricao = descricao;
+			else
+				throw new RuntimeException();
+		}else
 			throw new RuntimeException();
 	}
 
@@ -106,7 +122,13 @@ public class Produto {
 
 	public void setUnidade(String unidade) throws RuntimeException{
 		if(unidade.length() == 2)
-			this.unidade = unidade;
+			
+			if(Character.isAlphabetic(Character.valueOf(unidade.toCharArray()[0])) &&
+				Character.isAlphabetic(Character.valueOf(unidade.toCharArray()[1])))
+				
+				this.unidade = unidade;
+			else 
+				throw new RuntimeException();
 		else
 			throw new RuntimeException();
 	}

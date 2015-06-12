@@ -27,7 +27,7 @@ public class Teste_Alteração_Produto{
 	
 	@Test(expected = Exception.class)
 	public void CTPA3() {
-		produto.setDescricao("Abcdefghijklmnopqrstuvwxyz123456789abcdefghijklmnopqrstuvwxyz");
+		produto.setDescricao("Abcdefghijklmnopqrstuvwxyz123456789abcdefghijklmnopqrstuvwxyzabcdefg");
 	}
 	
 	@Test(expected = Exception.class)
@@ -72,7 +72,7 @@ public class Teste_Alteração_Produto{
 
 	}
 	
-	@Test(expected = Exception.class)
+	@Test
 	public void CTPA12() {
 		produto.setEstoque(0);
 		produto.setStatus(1);
@@ -80,7 +80,7 @@ public class Teste_Alteração_Produto{
 	
 	@Test(expected = Exception.class)
 	public void CTPA13() {
-		produto.setDescricao("abc");
+		produto.setDescricao("");
 	}
 	
 	@Test()
@@ -96,11 +96,11 @@ public class Teste_Alteração_Produto{
 	
 	@Test()
 	public void CTPA16() {
-		produto.setPrecoCompra(0.01);	
+		produto.setPrecoCompra(0.0);	
 	}
 	@Test(expected = Exception.class)
 	public void CTPA17() {
-		produto.setPrecoCompra(0.00);
+		produto.setPrecoCompra(-0.001);
 	}
 	
 	@Test()

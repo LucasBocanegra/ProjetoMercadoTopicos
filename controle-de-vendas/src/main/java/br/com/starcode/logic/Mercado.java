@@ -45,7 +45,10 @@ public class Mercado {
 	} 
 	
 	public void cadastrarCliente(Cliente c)throws RuntimeException{
-		this.clientes.add(c);
+		if(existeCliente(c.getCpf()))
+			throw new RuntimeException();
+		else
+			this.clientes.add(c);
 	}
 	
 	public void deleteCliente(Cliente c)throws RuntimeException{
@@ -66,8 +69,11 @@ public class Mercado {
 			throw new RuntimeException();
 	}
 	
-	public void cadastrarProduto(Produto p){
-		this.produtos.add(p);
+	public void cadastrarProduto(Produto p) throws RuntimeException{
+		if(existeProduto(p.getCodigo()))
+			throw new RuntimeException();
+		else
+			this.produtos.add(p);
 	}
 	
 	public void deleteProduto(Produto p)throws RuntimeException{
@@ -111,8 +117,8 @@ public class Mercado {
 			throw new RuntimeException();
 	}
 	
-	/* verifica se no vetor de produtos cadastras existe algum produto com o codigo passado pelo parametro*/
-	public boolean existeProtudo(int codigo)throws RuntimeException{
+	/* verifica se no vetor de produtos cadastrados se existe algum produto com o codigo passado pelo parametro*/
+	public boolean existeProduto(int codigo)throws RuntimeException{
 		boolean existe = false;
 		for (Produto p : produtos) {
 			if(p.getCodigo() == codigo)
@@ -146,7 +152,7 @@ public class Mercado {
 	public Produto getProduto(int codigo) throws RuntimeException{
 		Produto prod =  null;
 		
-		if(existeProtudo(codigo)){			
+		if(existeProduto(codigo)){			
 			for (Produto p : produtos) {
 				if(p.getCodigo() == codigo)
 					prod = p;
