@@ -6,8 +6,6 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.starcode.logic.Cliente;
-import br.com.starcode.logic.Mercado;
 import br.com.starcode.logic.Produto;
 import br.com.starcode.logic.RegistroVenda;
 
@@ -18,38 +16,14 @@ public class Teste_Alteração_RegistroDeVenda {
 	@Before
 	public void Criacao () {
 		
-		Mercado m = new Mercado();		
-		Produto produto, Produto1, Produto2, Produto3, Produto4, Produto5,Produto6;
-		
 		produto = new Produto(0,"Arroz",5.00,6.99,"Un",100,1);
-		Produto1 = new Produto(1,"Feijao",3.00,4.99,"Un",100,1);
-		Produto2 = new Produto(2,"Milho",1.00,2.99,"Un",100,1);
-		Produto3 = new Produto(3,"Cafe",1.50,2.99,"Un",100,1);
-		Produto4 = new Produto(4,"Bolacha",0.50,0.99,"Un",100,1);
-		Produto5 = new Produto(5,"Macarrao",1.50,2.99,"Un",100,1);
-		Produto6 = new Produto(6,"Leite",0.70,1.20,"Un",0,0);
-
-		m.cadastrarProduto(produto);
-		m.cadastrarProduto(Produto1);
-		m.cadastrarProduto(Produto2);
-		m.cadastrarProduto(Produto3);
-		m.cadastrarProduto(Produto4);
-		m.cadastrarProduto(Produto5);
-		m.cadastrarProduto(Produto6);
-		
-		Cliente c = new Cliente("matheus santos", "37413815869", "av. xyz", "(16)997765478", "matheus@ufscar.com.br", 1);
-		
-		m.cadastrarCliente(c);
-		
-		
-		/*produto = new Produto(0,"Arroz",5.00,6.99,"Un",100,1);
 		Produto1 = new Produto(1,"Feijao",3.00,4.99,"Un",100,1);
 		Produto2 = new Produto(2,"Milho",1.00,2.99,"Un",100,1);
 		Produto3 = new Produto(3,"Café",1.50,2.99,"Un",100,1);
 		Produto4 = new Produto(4,"Bolacha",0.50,0.99,"Un",100,1);
 		Produto5 = new Produto(5,"Macarrão",1.50,2.99,"Un",100,1);
 		Produto6 = new Produto(6,"Leite",0.70,1.20,"Un",0,0);
-		RV = new RegistroVenda("0;Arroz;37413815869;09/06/2015;0;7.00;1;5.00;");	*/
+		RV = new RegistroVenda("0;Arroz;37413815869;09/06/2015;0;7.00;1;5.00;");		
 
 	}
 
@@ -128,13 +102,11 @@ public class Teste_Alteração_RegistroDeVenda {
 		RV.setData("00/06/2015");
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA12() {
 		RV.setData("01/06/2015");		
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA13() {
 		RV.setData("31/06/2015");		
@@ -150,13 +122,11 @@ public class Teste_Alteração_RegistroDeVenda {
 		RV.setData("10/01/2015");		
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA16() {
 		RV.setData("10/12/2015");
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA17() {
 		ArrayList<Double> quantidades = new ArrayList<Double>();
@@ -167,7 +137,6 @@ public class Teste_Alteração_RegistroDeVenda {
 		RV.setProdutos(produtos);
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA18() {
 		ArrayList<Double> quantidades = new ArrayList<Double>();

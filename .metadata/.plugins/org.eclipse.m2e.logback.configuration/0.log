@@ -982,3 +982,15 @@ java.lang.NullPointerException: null
 2015-06-12 14:29:27,332 [Worker-164] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2015-06-12 14:29:27,334 [Worker-164] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2015-06-12 14:29:27,336 [Worker-164] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-06-12 14:39:50,250 [Worker-170] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-06-12 14:39:50,252 [Worker-170] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-06-12 14:39:50,253 [Worker-170] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-06-12 14:39:50,255 [Worker-170] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-06-12 14:40:25,463 [Worker-172] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-06-12 14:40:25,465 [Worker-172] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-06-12 14:40:25,467 [Worker-172] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-06-12 14:40:25,470 [Worker-172] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-06-12 14:41:17,836 [Worker-162] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-06-12 14:41:17,839 [Worker-162] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2015-06-12 14:41:17,841 [Worker-162] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2015-06-12 14:41:17,842 [Worker-162] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource

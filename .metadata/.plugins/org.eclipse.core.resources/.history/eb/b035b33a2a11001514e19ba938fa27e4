@@ -128,13 +128,11 @@ public class Teste_Alteração_RegistroDeVenda {
 		RV.setData("00/06/2015");
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA12() {
 		RV.setData("01/06/2015");		
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA13() {
 		RV.setData("31/06/2015");		
@@ -150,13 +148,11 @@ public class Teste_Alteração_RegistroDeVenda {
 		RV.setData("10/01/2015");		
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA16() {
 		RV.setData("10/12/2015");
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA17() {
 		ArrayList<Double> quantidades = new ArrayList<Double>();
@@ -167,7 +163,6 @@ public class Teste_Alteração_RegistroDeVenda {
 		RV.setProdutos(produtos);
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA18() {
 		ArrayList<Double> quantidades = new ArrayList<Double>();

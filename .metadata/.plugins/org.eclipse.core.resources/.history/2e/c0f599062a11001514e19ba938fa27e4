@@ -39,7 +39,7 @@ public class Teste_Inclusão_RegistroDeVenda {
 		m.cadastrarCliente(c);
 	}
 
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
+		
 	@Test
 	public void CTRVI1() {
 		RV = new RegistroVenda("0;Arroz;37413815869;09/06/2015;0;7.00;1;5.00;");		
@@ -106,12 +106,11 @@ public class Teste_Inclusão_RegistroDeVenda {
 		RV = new RegistroVenda("2;Arroz;37413815869;00/06/2015;0;7.00;1;5.00;");		
 	}
 	
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/
 	@Test()
 	public void CTRVI14() {
 		RV = new RegistroVenda("2;Arroz;37413815869;01/06/2015;0;7.00;1;5.00;");		
 	}
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/
+	
 	@Test()
 	public void CTRVI15() {
 		RV = new RegistroVenda("3;Arroz;37413815869;31/06/2015;0;7.00;1;5.00;");		
@@ -121,24 +120,24 @@ public class Teste_Inclusão_RegistroDeVenda {
 	public void CTRVI16() {
 		RV = new RegistroVenda("4;Arroz;37413815869;09/00/2015;0;7.00;1;5.00;");		
 	}
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/
+	
 	@Test()
 	public void CTRVI17() {
 		RV = new RegistroVenda("5;Arroz;37413815869;09/01/2015;0;7.00;1;5.00;");
 		assertEquals(RV.getNumero(),5);
 	}
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/
+	
 	@Test()
 	public void CTRVI18() {
 		RV = new RegistroVenda("6;Arroz;37413815869;09/06/2015;0;7.00;1;5.00;");
 		assertEquals(RV.getNumero(),6);
 	}
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/
+	
 	@Test()
 	public void CTRVI19() {
 		RV = new RegistroVenda("7;Arroz;37413815869;09/06/2015;0;7.00;");		
 	}
-	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/
+	
 	@Test()
 	public void CTRVI20() {
 		RV = new RegistroVenda("8;Arroz;37413815869;09/06/2015;0;0.01;");		
