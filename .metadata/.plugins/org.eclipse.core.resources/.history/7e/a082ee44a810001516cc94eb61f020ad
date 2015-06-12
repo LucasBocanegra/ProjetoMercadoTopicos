@@ -10,8 +10,8 @@ import br.com.starcode.logic.RegistroVenda;
 //TODO excluir esta classe quando for criar os casos de teste efetivos
 public class FastTest {
 
-	//@Test //(expected = RuntimeException.class)
-	/*public void testDataReg() {
+	@Test //(expected = RuntimeException.class)
+	public void testDataReg() {
 		ArrayList<Produto> p =  new ArrayList<Produto>();
 		p.add(new Produto(1," descricao",5.0, 7.0,"un",10.0,1));
 		p.add(new Produto(2," descricao 2",5.0, 7.0,"un",20.0,1));
@@ -22,7 +22,7 @@ public class FastTest {
 		q.add(3.0);
 		q.add(6.0);
 		
-		//RegistroVenda reg = new RegistroVenda();
+		RegistroVenda reg = new RegistroVenda();
 		reg.setQuantidadeItens(3);
 		reg.setQuantidades(q);
 		reg.setProdutos(p);
@@ -34,6 +34,6 @@ public class FastTest {
 			assert(true);
 		else
 			assert(false);		
-	}*/
+	}
 	
 }

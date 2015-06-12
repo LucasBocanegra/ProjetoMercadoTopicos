@@ -61,10 +61,7 @@ public class Produto {
 	
 	//codigo nao pode ser repetido
 	public void setCodigo(int codigo) throws RuntimeException{
-		if(codigo >= 0)
-			this.codigo = codigo;
-		else
-			throw new RuntimeException();
+		this.codigo = codigo;
 	}
 
 	public String getDescricao()throws RuntimeException {
@@ -128,7 +125,7 @@ public class Produto {
 
 	public void setStatus(int status) throws RuntimeException {
 		if(status == 1 || status == 0){
-			if(status == 0 && estoque > 0)
+			if(status == 0 && estoque >= 0)
 				throw new RuntimeException();
 			else
 				this.status = status;
