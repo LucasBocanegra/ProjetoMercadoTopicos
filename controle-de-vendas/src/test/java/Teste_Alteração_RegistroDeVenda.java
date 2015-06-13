@@ -131,13 +131,15 @@ public class Teste_Alteração_RegistroDeVenda {
 	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA12() {
-		RV.setData("01/06/2015");		
+		RV.setData("01/06/2015");	
+		//testar um no dia na análise do valor limite
 	}
 	
 	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
 	@Test()
 	public void CTRVA13() {
 		RV.setData("31/06/2015");		
+	//testar 31 na análise do valor limite
 	}
 	
 	@Test(expected = RuntimeException.class)
@@ -154,6 +156,7 @@ public class Teste_Alteração_RegistroDeVenda {
 	@Test()
 	public void CTRVA16() {
 		RV.setData("10/12/2015");
+		//testar 12 no mes na análise do valor limite
 	}
 	
 	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
@@ -165,6 +168,7 @@ public class Teste_Alteração_RegistroDeVenda {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
 		produtos.add(produto);
 		RV.setProdutos(produtos);
+		//testar passando apenas 1 produto e um valor para RegistroVenda
 	}
 	
 	/*ESTA DANDO ERRO FAVOR COMENTAR A FUNCIONALIDADE*/	
@@ -176,6 +180,7 @@ public class Teste_Alteração_RegistroDeVenda {
 		ArrayList<Produto> produtos = new ArrayList<Produto>();
 		produtos.add(produto);
 		RV.setProdutos(produtos);		
+		//testar passando o valor 0.01 como quantidade comprada para RegistroVenda
 	}
 	
 	@Test(expected = RuntimeException.class)
