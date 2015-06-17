@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>RegistroVenda.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Teste_Alteração_da_quantidade_em_estoque_dos_produtos (2) (17/06/2015 17:51:17)</a> &gt; <a href="../../index.html" class="el_group">controle-de-vendas</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">br.com.starcode.logic</a> &gt; <span class="el_source">RegistroVenda.java</span></div><h1>RegistroVenda.java</h1><pre class="source lang-java linenums">package br.com.starcode.logic;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import javax.management.RuntimeErrorException;
+
+public class RegistroVenda {
+	
+	private int numero;
+	private Date data;
+	private int quantidadeItens;
+	private ArrayList&lt;Double&gt; quantidades;
+	
+	private Cliente cliente; //cpf do cliente
+	private ArrayList&lt;Produto&gt; produtos;	//produtos comprados pelo cliente
+	
+	
+<span class="nc" id="L21">	public RegistroVenda(int numero, String data, int quantidadeItens,</span>
+			ArrayList&lt;Double&gt; quantidades, Cliente cliente, ArrayList&lt;Produto&gt; produtos) throws RuntimeException {
+		
+<span class="nc" id="L24">		setNumero(numero);</span>
+<span class="nc" id="L25">		setData(data);</span>
+<span class="nc" id="L26">		setQuantidadeItens(quantidadeItens);</span>
+<span class="nc" id="L27">		setQuantidades(quantidades);</span>
+<span class="nc" id="L28">		setCliente(cliente);</span>
+<span class="nc" id="L29">		setProdutos(produtos);</span>
+<span class="nc" id="L30">	}</span>
+	
+	/*cadastra um registro venda no mercado indicado*/
+<span class="nc" id="L33">	public RegistroVenda(int numero, String data, int quantidadeItens,</span>
+			ArrayList&lt;Double&gt; quantidades, Cliente cliente, ArrayList&lt;Produto&gt; produtos, Mercado m) throws RuntimeException {
+		
+<span class="nc" id="L36">		setNumero(numero);</span>
+<span class="nc" id="L37">		setData(data);</span>
+<span class="nc" id="L38">		setQuantidadeItens(quantidadeItens);</span>
+<span class="nc" id="L39">		setQuantidades(quantidades);</span>
+<span class="nc" id="L40">		setCliente(cliente, m);</span>
+<span class="nc" id="L41">		setProdutos(produtos, m);</span>
+<span class="nc" id="L42">	}</span>
+	
+<span class="fc" id="L44">	public RegistroVenda(String stringRegVenda) throws RuntimeException{</span>
+		/*String info = numero do registro de venda, CPF do cliente, data da
+		venda, codigo do produto 1, quantidade do produto 1, c´odigo do produto
+		2, quantidade do produto 2, ..., código do produto n, quantidade do
+		produto n, separado por &quot;;&quot; cada item*/
+		
+		try{
+<span class="fc" id="L51">			int quantidadeItens = 0;</span>
+<span class="fc" id="L52">			String n[] = stringRegVenda.split(&quot;;&quot;);</span>
+			
+<span class="fc" id="L54">			setNumero(Integer.parseInt(n[0]));</span>
+			/*obs: só com o cpf não eh possivel instanciar um cliente,
+			 * é preciso ou indicar um obj Cliente ou o obj Mercado para a partir dele conseguir o obj Cliente*/
+			
+<span class="fc" id="L58">			setData(n[2]);</span>
+					
+<span class="fc" id="L60">			quantidadeItens = (n.length-3)/2;</span>
+<span class="fc" id="L61">			setQuantidadeItens(quantidadeItens);</span>
+			
+			//se tiver numero impar de cod produto, quantidade. ex. 0;4.0;1;5.0;2;2.0;7
+<span class="fc bfc" id="L64" title="All 2 branches covered.">			if((n.length-3) % 2 != 0)</span>
+<span class="fc" id="L65">				throw new RuntimeException();</span>
+			
+<span class="fc bfc" id="L67" title="All 2 branches covered.">			for(int i = 3;i&lt;n.length;i=i+2){</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">				if (Integer.parseInt(n[i]) &lt; 0 ||</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">						Double.parseDouble(n[i+1]) &lt;0)</span>
+<span class="fc" id="L70">					throw new RuntimeException();</span>
+				
+				/*somente com o código do produto nao é possivel instanciar um produto
+				 * é necessário indicar os objs produtos, ou o obj Mercado para a partir dele conseguir o objs Produtos
+				 * */
+			}			
+<span class="fc" id="L76">		}catch(Exception e){throw new RuntimeException();}</span>
+	
+<span class="fc" id="L78">	}</span>
+
+<span class="fc" id="L80">	public RegistroVenda(String stringRegVenda, Mercado m) throws RuntimeException{</span>
+		/*String info = numero do registro de venda, CPF do cliente, data da
+		 *  venda, codigo do produto 1, quantidade do produto 1, c´odigo do produto
+		 *  2, quantidade do produto 2, ..., código do produto n, quantidade do
+	     *	produto n, separado por &quot;;&quot; cada item
+		*/
+		
+		Cliente c;
+<span class="fc" id="L88">		ArrayList&lt;Produto&gt; prods = new ArrayList&lt;Produto&gt;();</span>
+<span class="fc" id="L89">		ArrayList&lt;Double&gt;  qnts =  new ArrayList&lt;Double&gt;();</span>
+<span class="fc" id="L90">		int quantidadeItens = 0;</span>
+			
+<span class="fc" id="L92">		String n[] = stringRegVenda.split(&quot;;&quot;);</span>
+		
+		try{
+<span class="fc" id="L95">			setNumero(Integer.parseInt(n[0]));</span>
+			
+<span class="fc" id="L97">			c = m.getCliente(n[1]);</span>
+<span class="fc" id="L98">			setCliente(c);			</span>
+			
+<span class="fc" id="L100">			setData(n[2]);</span>
+					
+<span class="fc" id="L102">			quantidadeItens = (n.length-3)/2; /*da string tirando os tres primeiros dados sobram os dados sobre os produtos*/</span>
+<span class="fc" id="L103">			setQuantidadeItens(quantidadeItens);</span>
+			
+			//se tiver numero impar de cod produto, quantidade. ex. 0;4.0;1;5.0;2;2.0;7
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">			if((n.length-3) % 2 != 0)</span>
+<span class="nc" id="L107">				throw new RuntimeException();</span>
+			
+<span class="fc bfc" id="L109" title="All 2 branches covered.">			for(int i = 3;i&lt;n.length;i=i+2){</span>
+<span class="fc" id="L110">				prods.add(m.getProduto(Integer.parseInt(n[i])));</span>
+<span class="fc" id="L111">				qnts.add(Double.parseDouble(n[i+1]));</span>
+			}
+			
+<span class="fc" id="L114">			setQuantidades(qnts);</span>
+<span class="fc" id="L115">			setProdutos(prods);</span>
+			
+<span class="pc" id="L117">		}catch(Exception e){throw new RuntimeException();}</span>
+<span class="fc" id="L118">	}</span>
+
+	public int getNumero()throws RuntimeException {
+<span class="fc" id="L121">		return numero;</span>
+	}
+
+	public void setNumero(int numero) throws RuntimeException{
+<span class="fc bfc" id="L125" title="All 2 branches covered.">		if(numero &gt;= 0)</span>
+<span class="fc" id="L126">			this.numero = numero;</span>
+		else
+<span class="fc" id="L128">			throw new RuntimeException();</span>
+<span class="fc" id="L129">	}</span>
+
+	public Date getData()throws RuntimeException {
+<span class="fc" id="L132">		return data;</span>
+	}
+
+	public void setData(String data)throws RuntimeException {
+		
+<span class="fc" id="L137">		DateFormat df = new SimpleDateFormat (&quot;dd/MM/yyyy&quot;); </span>
+<span class="fc" id="L138">	    df.setLenient (false); // aqui o pulo do gato    </span>
+	    
+<span class="fc bfc" id="L140" title="All 2 branches covered.">	    if(data.length() == 10){</span>
+		    try {
+<span class="fc" id="L142">				this.data =  df.parse(data);</span>
+<span class="fc" id="L143">			} catch (Exception e) {</span>
+<span class="fc" id="L144">				throw new RuntimeException();</span>
+			}
+	    }
+	    else
+<span class="fc" id="L148">	    	throw new RuntimeException();</span>
+<span class="fc" id="L149">	}</span>
+
+	public int getQuantidadeItens() throws RuntimeException{
+<span class="nc" id="L152">		return quantidadeItens;</span>
+	}
+
+	public void setQuantidadeItens(int quantidadeItens)throws RuntimeException {
+<span class="fc bfc" id="L156" title="All 2 branches covered.">		if (quantidadeItens &gt; 0)</span>
+<span class="fc" id="L157">			this.quantidadeItens = quantidadeItens;</span>
+		else
+<span class="fc" id="L159">			throw new RuntimeException();</span>
+<span class="fc" id="L160">	}</span>
+
+	public ArrayList&lt;Double&gt; getQuantidades() throws RuntimeException{
+<span class="nc" id="L163">		return quantidades;</span>
+	}
+
+	public void setQuantidades(ArrayList&lt;Double&gt; quantidades)throws RuntimeException {
+<span class="fc" id="L167">		this.quantidades = new ArrayList&lt;Double&gt;();</span>
+<span class="fc" id="L168">		boolean numOk = true;</span>
+		
+<span class="fc bfc" id="L170" title="All 2 branches covered.">		if(quantidades.size() == quantidadeItens){</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">			for (Double num : quantidades) {</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">				if(num &lt;= 0)</span>
+<span class="nc" id="L173">					numOk = false;</span>
+			}
+			//se todas as quantidades forem maiores que 0
+<span class="pc bpc" id="L176" title="1 of 2 branches missed.">			if(numOk == true){</span>
+				//this.quantidades.clear();
+<span class="fc" id="L178">				this.quantidades.addAll(quantidades);</span>
+				
+<span class="fc" id="L180">			}</span>
+			else 
+<span class="nc" id="L182">				throw new RuntimeException();</span>
+		}else
+<span class="fc" id="L184">			throw new RuntimeException();</span>
+			
+<span class="fc" id="L186">	}</span>
+
+	public Cliente getCliente()throws RuntimeException {
+<span class="nc" id="L189">		return cliente;</span>
+	}
+
+	public void setCliente(Cliente cliente)throws RuntimeException {		
+<span class="fc" id="L193">		this.cliente = cliente;</span>
+<span class="fc" id="L194">	}</span>
+	
+	/*Este método verifica se o cliente pertence ao mercado*/
+	public void setCliente(Cliente cliente, Mercado m)throws RuntimeException {		
+<span class="nc bnc" id="L198" title="All 2 branches missed.">		if(m.existeCliente(cliente.getCpf()))</span>
+<span class="nc" id="L199">			this.cliente = cliente;</span>
+		else
+<span class="nc" id="L201">			throw new RuntimeException();</span>
+<span class="nc" id="L202">	}</span>
+
+	public ArrayList&lt;Produto&gt; getProdutos() throws RuntimeException{
+<span class="nc" id="L205">		return produtos;</span>
+	}
+
+	public void setProdutos(ArrayList&lt;Produto&gt; p) throws RuntimeException {
+<span class="fc" id="L209">		this.produtos = new ArrayList&lt;Produto&gt;();</span>
+<span class="fc" id="L210">		boolean prodOk = true;</span>
+				
+<span class="pc bpc" id="L212" title="1 of 2 branches missed.">		if(p.size() ==  quantidades.size()){</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">			for(int i=0; i&lt; p.size();i++)</span>
+			{
+				/* Se existe produto em estoque */					
+<span class="pc bpc" id="L216" title="1 of 2 branches missed.">				if(p.get(i).getEstoque() &lt; quantidades.get(i)){</span>
+<span class="nc" id="L217">					prodOk = false;</span>
+<span class="nc" id="L218">					break;</span>
+				}
+			}
+<span class="pc bpc" id="L221" title="1 of 2 branches missed.">			if(prodOk == true)</span>
+			{
+<span class="fc" id="L223">				atualizaEstoque(p);</span>
+<span class="fc" id="L224">				this.produtos.addAll(p);					</span>
+<span class="fc" id="L225">			}</span>
+			else
+<span class="nc" id="L227">				throw new RuntimeException();</span>
+		}else
+<span class="nc" id="L229">			throw new RuntimeException();</span>
+<span class="fc" id="L230">	}	</span>
+	
+	/*Este método verifica alem de possuir produto em estoque ele também verifica se o produto pertence ao mercado*/
+	public void setProdutos(ArrayList&lt;Produto&gt; produtos, Mercado m) throws RuntimeException {
+<span class="nc" id="L234">		this.produtos = new ArrayList&lt;Produto&gt;();</span>
+<span class="nc" id="L235">		boolean prodOk = true;</span>
+				
+<span class="nc bnc" id="L237" title="All 2 branches missed.">		if(produtos.size() ==  quantidades.size()){</span>
+<span class="nc bnc" id="L238" title="All 2 branches missed.">			for(int i=0; i&lt; produtos.size();i++)</span>
+			{
+				/* Se existe produto em estoque e se o produto existe no mercado (classe mercado)*/
+<span class="nc bnc" id="L241" title="All 2 branches missed.">				if(produtos.get(i).getEstoque() &lt; quantidades.get(i) &amp;&amp;</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">						m.existeProduto(produtos.get(i).getCodigo())){</span>
+<span class="nc" id="L243">					prodOk = false;</span>
+<span class="nc" id="L244">					break;</span>
+				}
+			}
+<span class="nc bnc" id="L247" title="All 2 branches missed.">			if(prodOk == true)</span>
+			{
+<span class="nc" id="L249">				atualizaEstoque(produtos);</span>
+<span class="nc" id="L250">				this.produtos.addAll(produtos);					</span>
+<span class="nc" id="L251">			}</span>
+			else
+<span class="nc" id="L253">				throw new RuntimeException();</span>
+		}		
+<span class="nc" id="L255">	}	</span>
+	
+	private void atualizaEstoque(ArrayList&lt;Produto&gt; produtos)throws RuntimeException{
+<span class="fc bfc" id="L258" title="All 2 branches covered.">		for(int i=0; i&lt; produtos.size();i++){</span>
+<span class="fc" id="L259">			Produto p = produtos.get(i);</span>
+<span class="fc" id="L260">			p.setEstoque(p.getEstoque()-quantidades.get(i));</span>
+<span class="fc" id="L261">			produtos.set(i, p);</span>
+		}
+		
+<span class="fc" id="L264">	}</span>
+	
+	/*funcao que calcula o valor total da compra*/
+	public double valorTotalCompra()throws RuntimeException	{
+<span class="fc" id="L268">		double fat = 0.0;</span>
+<span class="fc bfc" id="L269" title="All 2 branches covered.">		for(int i =0;i&lt;quantidadeItens;i++){</span>
+<span class="fc" id="L270">			fat += produtos.get(i).getPrecoVenda()*quantidades.get(i);			</span>
+		}
+<span class="fc" id="L272">		return fat;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>Teste_Alteração_da_quantidade_em_estoque_dos_produtos (2) (17/06/2015 17:51:17)</div></body></html>

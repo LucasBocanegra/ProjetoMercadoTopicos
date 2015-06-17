@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>Mercado.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Teste_Alteração_da_quantidade_em_estoque_dos_produtos (2) (17/06/2015 17:51:17)</a> &gt; <a href="../../index.html" class="el_group">controle-de-vendas</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">br.com.starcode.logic</a> &gt; <span class="el_source">Mercado.java</span></div><h1>Mercado.java</h1><pre class="source lang-java linenums">package br.com.starcode.logic;
+
+import java.util.ArrayList;
+
+public class Mercado {
+
+	private ArrayList&lt;Cliente&gt; clientes;
+	private ArrayList&lt;Produto&gt; produtos;
+	private ArrayList&lt;RegistroVenda&gt; registrosVendas;
+	
+<span class="fc" id="L11">	public Mercado() throws RuntimeException {</span>
+		
+<span class="fc" id="L13">		clientes = new ArrayList&lt;Cliente&gt;();</span>
+<span class="fc" id="L14">		produtos = new ArrayList&lt;Produto&gt;();</span>
+<span class="fc" id="L15">		registrosVendas = new ArrayList&lt;RegistroVenda&gt;();</span>
+<span class="fc" id="L16">	}</span>
+
+	
+	public double calculaFaturamento(int mes)throws RuntimeException{
+<span class="fc" id="L20">		double faturamento = 0.0;</span>
+		
+<span class="fc bfc" id="L22" title="All 4 branches covered.">		if(mes &gt; 0 &amp;&amp; mes &lt; 12)</span>
+		{		
+<span class="fc bfc" id="L24" title="All 2 branches covered.">			for (RegistroVenda reg : registrosVendas) {</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">				if ((reg.getData().getMonth()+1) == mes)</span>
+				{
+<span class="fc" id="L27">					faturamento += reg.valorTotalCompra();</span>
+				}
+			}
+		}
+<span class="fc" id="L31">		return faturamento;</span>
+	}	
+
+	
+	public ArrayList&lt;Integer&gt; consultaProdutos(String descricao) throws RuntimeException{
+<span class="fc" id="L36">		ArrayList&lt;Integer&gt; p =  new ArrayList&lt;Integer&gt;();</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">		for (Produto prod : produtos) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">			if(prod.getDescricao().indexOf(descricao) == 0)</span>
+<span class="fc" id="L39">				p.add(prod.getCodigo());</span>
+		}
+<span class="fc bfc" id="L41" title="All 2 branches covered.">		if(p.isEmpty())</span>
+<span class="fc" id="L42">			p.add(-1);</span>
+		
+<span class="fc" id="L44">		return p;</span>
+	} 
+	
+	public void cadastrarCliente(Cliente c)throws RuntimeException{
+<span class="fc bfc" id="L48" title="All 2 branches covered.">		if(existeCliente(c.getCpf()))</span>
+<span class="fc" id="L49">			throw new RuntimeException();</span>
+		else
+<span class="fc" id="L51">			this.clientes.add(c);</span>
+<span class="fc" id="L52">	}</span>
+	
+	public void deleteCliente(Cliente c)throws RuntimeException{
+		
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if(this.clientes.indexOf(c) != -1)</span>
+		{
+<span class="nc" id="L58">			this.clientes.remove(c);</span>
+<span class="nc" id="L59">		}else</span>
+<span class="nc" id="L60">			throw new RuntimeException();</span>
+<span class="nc" id="L61">	}</span>
+	
+	public void deleteCliente(Integer index)throws RuntimeException{
+		
+<span class="nc bnc" id="L65" title="All 4 branches missed.">		if(index &gt;= 0 &amp;&amp; index &lt; this.clientes.size())</span>
+		{
+<span class="nc" id="L67">			this.clientes.remove(index);</span>
+<span class="nc" id="L68">		}else</span>
+<span class="nc" id="L69">			throw new RuntimeException();</span>
+<span class="nc" id="L70">	}</span>
+	
+	public void cadastrarProduto(Produto p) throws RuntimeException{
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if(existeProduto(p.getCodigo()))</span>
+<span class="fc" id="L74">			throw new RuntimeException();</span>
+		else
+<span class="fc" id="L76">			this.produtos.add(p);</span>
+<span class="fc" id="L77">	}</span>
+	
+	public void deleteProduto(Produto p)throws RuntimeException{
+		
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		if(this.produtos.indexOf(p) != -1)</span>
+		{
+<span class="nc" id="L83">			this.produtos.remove(p);</span>
+<span class="nc" id="L84">		}else</span>
+<span class="nc" id="L85">			throw new RuntimeException();</span>
+<span class="nc" id="L86">	}</span>
+	
+	public void deleteProduto(Integer index)throws RuntimeException{
+		
+<span class="nc bnc" id="L90" title="All 4 branches missed.">		if(index &gt;= 0 &amp;&amp; index &lt; this.produtos.size())</span>
+		{
+<span class="nc" id="L92">			this.produtos.remove(index);</span>
+<span class="nc" id="L93">		}else</span>
+<span class="nc" id="L94">			throw new RuntimeException();</span>
+<span class="nc" id="L95">	}</span>
+	
+	
+	public void cadastrarRegistroVenda(RegistroVenda reg)throws RuntimeException{
+<span class="fc" id="L99">		this.registrosVendas.add(reg);</span>
+<span class="fc" id="L100">	}</span>
+	
+	public void deleteRegistroVenda(RegistroVenda reg)throws RuntimeException{
+		
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		if(this.registrosVendas.indexOf(reg) != -1)</span>
+		{
+<span class="nc" id="L106">			this.registrosVendas.remove(reg);</span>
+<span class="nc" id="L107">		}else</span>
+<span class="nc" id="L108">			throw new RuntimeException();</span>
+<span class="nc" id="L109">	}</span>
+	
+	public void deleteRegistroVenda(Integer index)throws RuntimeException{
+		
+<span class="nc bnc" id="L113" title="All 4 branches missed.">		if(index &gt;= 0 &amp;&amp; index &lt; this.registrosVendas.size())</span>
+		{
+<span class="nc" id="L115">			this.registrosVendas.remove(index);</span>
+<span class="nc" id="L116">		}else</span>
+<span class="nc" id="L117">			throw new RuntimeException();</span>
+<span class="nc" id="L118">	}</span>
+	
+	/* verifica se no vetor de produtos cadastrados se existe algum produto com o codigo passado pelo parametro*/
+	public boolean existeProduto(int codigo)throws RuntimeException{
+<span class="fc" id="L122">		boolean existe = false;</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">		for (Produto p : produtos) {</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">			if(p.getCodigo() == codigo)</span>
+<span class="fc" id="L125">				existe = true;</span>
+		}
+<span class="fc" id="L127">		return existe;</span>
+	}
+	/* verifica se no vetor de clientes cadastrados existe algum cliente com o cpf passado pelo parametro*/
+	public boolean existeCliente(String cpf)throws RuntimeException{
+<span class="fc" id="L131">		boolean existe = false;</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">		for (Cliente c : clientes) {</span>
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">			if(c.getCpf().equalsIgnoreCase(cpf))</span>
+<span class="fc" id="L134">				existe = true;</span>
+		}
+<span class="fc" id="L136">		return existe;</span>
+	}
+	
+	public Cliente getCliente(String cpf) throws RuntimeException{
+<span class="fc" id="L140">		Cliente cliente =  null;</span>
+		
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">		if(existeCliente(cpf)){			</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">			for (Cliente c : clientes) {</span>
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">				if(c.getCpf().equalsIgnoreCase(cpf))</span>
+<span class="fc" id="L145">					cliente = c;</span>
+			}
+<span class="fc" id="L147">			return  cliente;</span>
+		}else
+<span class="nc" id="L149">			throw new RuntimeException();</span>
+	}
+	
+	public Produto getProduto(int codigo) throws RuntimeException{
+<span class="fc" id="L153">		Produto prod =  null;</span>
+		
+<span class="pc bpc" id="L155" title="1 of 2 branches missed.">		if(existeProduto(codigo)){			</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">			for (Produto p : produtos) {</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">				if(p.getCodigo() == codigo)</span>
+<span class="fc" id="L158">					prod = p;</span>
+			}
+<span class="fc" id="L160">			return  prod;</span>
+			
+		}else
+<span class="nc" id="L163">			throw new RuntimeException();</span>
+	}
+	
+	
+	public ArrayList&lt;Cliente&gt; getClientes()throws RuntimeException {
+<span class="nc" id="L168">		return clientes;</span>
+	}
+
+	public void setClientes(ArrayList&lt;Cliente&gt; clientes)throws RuntimeException {
+<span class="nc" id="L172">		this.clientes = clientes;</span>
+<span class="nc" id="L173">	}</span>
+
+	public ArrayList&lt;Produto&gt; getProdutos()throws RuntimeException {
+<span class="nc" id="L176">		return produtos;</span>
+	}
+
+	public void setProdutos(ArrayList&lt;Produto&gt; produtos)throws RuntimeException {
+<span class="nc" id="L180">		this.produtos = produtos;</span>
+<span class="nc" id="L181">	}</span>
+
+	public ArrayList&lt;RegistroVenda&gt; getregistrosVendas()throws RuntimeException {
+<span class="nc" id="L184">		return registrosVendas;</span>
+	}
+
+	public void setregistrosVendas(ArrayList&lt;RegistroVenda&gt; registrosVendas) throws RuntimeException{
+<span class="nc" id="L188">		this.registrosVendas = registrosVendas;</span>
+<span class="nc" id="L189">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>Teste_Alteração_da_quantidade_em_estoque_dos_produtos (2) (17/06/2015 17:51:17)</div></body></html>

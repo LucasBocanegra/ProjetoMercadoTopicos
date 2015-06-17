@@ -30,6 +30,10 @@
 		<item value="80" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="ImportExportAction">
+		<item value="com.mountainminds.eclemma.ui.sessionExportWizard" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.jdt.ui.Java"/>
+		</list>
 	</section>
 	<section name="ZipFileImportWizard">
 	</section>

@@ -1,0 +1,16 @@
+falhas observadas e corrigidas
+
+Classe Cliente
+ - falha na verificação do atributo nome (não havia validado o nome para somente letra)
+ - falha na verificação do telefone (implementação anterior usando classes pré-definidar nao havia dado certo, a solução vou trabalhar a string e validar caracter por caracter)
+ - falha na verificação do email (implementação nao verificava a ocorrencia de caracter especial e strings vazias)
+
+Classe Produto
+ - com todos os casos de teste criados as funções geraram os resultados esperados
+
+Classe RegistroVenda
+ - falha no construtor (havia invertido as ordens dos elementos na string, além disso se na string tivesse numeros negativos ou par <codigo do produto, quantidade> não era validado de não tivesse algum elemento do par ou se tivesse os numeros negativos
+ - falha na verificação da data (caso fosse colocado numeros errados o validador arredondava o numero e não gerava exceção)
+
+Classe Mercado
+ - falha no captura da consulta produtos (não adicionava código de produto com o mesmo nome, só adicionava um deles)
