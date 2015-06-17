@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="Teste_Consulta_de_Produto_Por_Descrição" project="controle-de-vendas" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="br.com.starcode.bronzatoTest.Teste_Consulta_de_Produto_Por_Descrição" incomplete="true">
-    <testcase name="Con1" classname="br.com.starcode.bronzatoTest.Teste_Consulta_de_Produto_Por_Descrição" time="0.01"/>
-    <testcase name="Con2" classname="br.com.starcode.bronzatoTest.Teste_Consulta_de_Produto_Por_Descrição" time="0.001"/>
-    <testcase name="Con3" classname="br.com.starcode.bronzatoTest.Teste_Consulta_de_Produto_Por_Descrição" time="0.001"/>
-    <testcase name="Con4" classname="br.com.starcode.bronzatoTest.Teste_Consulta_de_Produto_Por_Descrição" incomplete="true"/>
-  </testsuite>
-</testrun>

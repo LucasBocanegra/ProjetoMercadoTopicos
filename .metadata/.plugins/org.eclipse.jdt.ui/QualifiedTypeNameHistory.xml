@@ -11,9 +11,9 @@
 <fullyQualifiedTypeName name="br.com.starcode.logic.Cliente"/>
 <fullyQualifiedTypeName name="br.com.starcode.logic.Mercado"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="org.junit.Ignore"/>
 <fullyQualifiedTypeName name="org.apache.commons.lang3.ArrayUtils"/>
-<fullyQualifiedTypeName name="java.lang.Character"/>
 <fullyQualifiedTypeName name="javax.management.RuntimeErrorException"/>
+<fullyQualifiedTypeName name="org.junit.Ignore"/>
 <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+<fullyQualifiedTypeName name="java.lang.Character"/>
 </qualifiedTypeNameHistroy>

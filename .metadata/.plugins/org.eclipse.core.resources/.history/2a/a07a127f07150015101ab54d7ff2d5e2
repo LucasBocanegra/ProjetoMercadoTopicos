@@ -53,11 +53,9 @@ public class Cliente {
 			//particiona o nome em prenome e sobrenome
 			
 			for(Character ch : nome.toCharArray()){
-				if(!Character.isAlphabetic(ch)&&!Character.isSpace(ch)){
+				if(!(Character.isAlphabetic(ch)||
+						Character.isDigit(ch)||Character.isSpaceChar(ch)))
 					ok = false;
-					break;
-				}
-				
 			}
 			if(ok == true){			
 				n = nome.split(" ");

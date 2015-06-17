@@ -48,27 +48,16 @@ public class Cliente {
 
 	public void setNome(String nome)throws RuntimeException {
 		String n[] = {null,null};
-		boolean ok = true;
 		if(nome.length() >= 5 && nome.length() <= 128){
 			//particiona o nome em prenome e sobrenome
 			
-			for(Character ch : nome.toCharArray()){
-				if(!Character.isAlphabetic(ch)&&!Character.isSpace(ch)){
-					ok = false;
-					break;
-				}
-				
-			}
-			if(ok == true){			
-				n = nome.split(" ");
-				
-				//se existir o segundo nome e tiver 2 letras no min
-				if(n.length > 1 && n[0].length() >= 2 && n[1].length() >= 2){
-					this.nome = nome;
-				}else
-					throw new RuntimeException();
+			n = nome.split(" ");
+			
+			//se existir o segundo nome e tiver 2 letras no min
+			if(n.length > 1 && n[0].length() >= 2 && n[1].length() >= 2){
+				this.nome = nome;
 			}else
-				throw new RuntimeException();
+				throw new RuntimeException();			
 		}else
 			throw new RuntimeException();
 		

@@ -31,11 +31,15 @@ public class Teste_Inclusão_Cliente{
 	
 	@Test(expected = Exception.class)
 	public void C4() {
+		//nao é para dar erro neste caso de teste //"leandro" Nome: alfabetico, com tamanho maximo 128 caracteres, composto por
+												  //no minimo duas palavras com tamanho minimo de 2 caracteres cada
 		cliente = new Cliente("Lendro","13705137123","Av. São Carlos, 35", "(16)331432488","leSalazar@hotmail.com",1);
 	}
 	
-	@Test(expected = Exception.class)
+	@Test //(expected = Exception.class)
 	public void C5() {
+		//nao é para dar erro neste caso de teste	//"l3andro" Nome: alfabetico, com tamanho maximo 128 caracteres, composto por
+		  											//no minimo duas palavras com tamanho minimo de 2 caracteres cada
 		cliente = new Cliente("L3ndro Salazar","13705137123","Av. São Carlos, 35", "(16)331432488","leSalazar@hotmail.com",1);
 	}
 	
@@ -77,16 +81,21 @@ public class Teste_Inclusão_Cliente{
 	
 	@Test(expected = Exception.class)
 	public void C11() {
+		//caso de teste repetido 	// "(16)3314-32488" Telefone: deve conter apenas numeros e os simbolos \(" e \)", seguindo o
+								 	//template\(XX)XXXXXXXXX", no qual os dois digitos entre parenteses	representam o DDD
 		cliente = new Cliente("Lendro Salazar","13705137123","Av. São Carlos, 35","(16)3314-32488","leSalazar@hotmail.com",1);
 	}
 	
 	@Test(expected = Exception.class)
 	public void C12() {
+		//caso de teste repetido 	// "(16)33143248a" Telefone: deve conter apenas numeros e os simbolos \(" e \)", seguindo o
+		 							//template\(XX)XXXXXXXXX", no qual os dois digitos entre parenteses
 		cliente = new Cliente("Lendro Salazar","13705137123","Av. São Carlos, 35","(16)33143248a","leSalazar@hotmail.com",1);
 	}
 	
 	@Test(expected = Exception.class)
 	public void C13() {
+		//caso de teste repetido    // "@leSalazar.hotmail.com" E-mail1: deve seguir o template\USUARIO@DOMINIO.COMPLEMENTO"
 		cliente = new Cliente("Lendro Salazar","13705137123","Av. São Carlos, 35","(16)331432488","@leSalazar.hotmail.com",1);
 	}
 	
