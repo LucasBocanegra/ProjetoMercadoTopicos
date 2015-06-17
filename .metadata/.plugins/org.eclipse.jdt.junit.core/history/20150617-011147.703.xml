@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Teste_Inclusão_Produto" project="controle-de-vendas" tests="26" started="26" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.001">
+    <testcase name="CTPI1" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI2" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI3" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI4" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI5" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI6" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI7" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI8" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI9" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI10" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI11" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI12" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI13" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI14" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI15" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI16" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI17" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI18" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI19" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI20" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI21" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI22" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI23" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI24" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI25" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+    <testcase name="CTPI26" classname="br.com.starcode.matheusTest.Teste_Inclusão_Produto" time="0.0"/>
+  </testsuite>
+</testrun>

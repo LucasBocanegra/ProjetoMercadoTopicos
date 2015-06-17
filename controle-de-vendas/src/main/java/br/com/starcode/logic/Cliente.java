@@ -4,6 +4,10 @@ import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.management.RuntimeErrorException;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 public class Cliente {
 	
 	private final int Ativo = 1;
@@ -22,8 +26,8 @@ public class Cliente {
 		setNome(nome);
 		setCpf(cpf);
 		setEndereco(endereco);
-		//setTelefone(telefone);
-		//setEmail(email);
+		setTelefone(telefone);
+		setEmail(email);
 		setStatus(status);
 	}
 	
@@ -33,7 +37,7 @@ public class Cliente {
 		setNome(nome);
 		setCpf(cpf);
 		setEndereco(endereco);
-		//setTelefone(telefone);
+		setTelefone(telefone);
 		setEmail(email);
 		setStatus(status);		
 	}
@@ -43,7 +47,7 @@ public class Cliente {
 	}
 
 	public void setNome(String nome)throws RuntimeException {
-		String n[];
+		String n[] = {null,null};
 		if(nome.length() >= 5 && nome.length() <= 128){
 			//particiona o nome em prenome e sobrenome
 			
@@ -88,15 +92,34 @@ public class Cliente {
 	public void setTelefone(String telefone) throws RuntimeException {
 		Pattern pattern = Pattern.compile("(\\d{2})\\d{9}");
 	    Matcher matcher = pattern.matcher(telefone);
-	     
-	    try{
-	    	if(matcher.matches())		
-				this.telefone = telefone;
-	    	else
-	    		throw new RuntimeException();
-				
-	    }catch(Exception e){
-			throw new RuntimeException();	}	
+	    boolean ok = true;
+	    if(telefone.length() == 13){
+		    try{
+		    	char[] c = telefone.toCharArray();
+		    	Character[] ch = ArrayUtils.toObject(c);
+		    	
+		    	//for(int i=0;i<ch.length;i++)
+		    		//System.out.println(ch[i]);
+		    	
+		    	if(!(ch[0].toString().equals("(")&&ch[3].toString().equals(")")))
+	    			ok = false;
+		    	
+		    	for(int i=0;i<ch.length;i++){
+		    		if(i != 0 && i != 3){
+		    			if(!Character.isDigit(ch[i]))
+		    				ok = false;
+		    		}
+		    				
+		    	}
+		    	if(ok==true)		
+					this.telefone = telefone;
+		    	else
+		    		throw new RuntimeException();
+					
+		    }catch(Exception e){
+				throw new RuntimeException();	}	
+	    }else
+	    	throw new RuntimeException();
 	}
 
 	public String getEmail() {
@@ -105,19 +128,27 @@ public class Cliente {
 
 	public void setEmail(String email) throws RuntimeException {
 		String n[] = new String[2];
-		String d[] = new String[3];
+		String d[] = {null,null};
 		
- 		n = email.split("@"); //separa usuario e dominio	
- 		d = n[1].split("."); // separa dominio e complemento
- 		
+		int ant = 0, dps = 0;
+		
+ 		n = email.split("@"); //separa usuario e dominio
+ 		d[0] = n[1].substring(0, n[1].indexOf("."));
+ 		d[1] = n[1].substring(n[1].indexOf(".")+1);
+ 		 			
  		Character l1 = n[0].toCharArray()[0]; //primeiro caracter do usuário
  		Character l2 = n[1].toCharArray()[0]; //primeira caracter do dominio
  		
  		if(Character.isLetter(l1) && Character.isLetter(l2))
  		{
- 			if((d[1].equalsIgnoreCase("com") && d[2].isEmpty())
- 					|| (d[1].equalsIgnoreCase("com") && d[2].equalsIgnoreCase("br")))
+ 			if(d[1].equalsIgnoreCase("com")
+ 					|| d[1].equalsIgnoreCase("com.br"))
  			{
+ 				for(Character ch: n[0].toCharArray()){
+ 					if(!(Character.isAlphabetic(ch)||Character.isDigit(ch)))
+ 						throw new RuntimeException(); 	
+ 				}
+ 				
  				this.email = email;
  				
  			}else

@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="mercado"/>
 			<item value="Produto "/>
 			<item value="Produto"/>
 			<item value="registroVendas"/>
@@ -15,6 +16,7 @@
 			<item value="char[]"/>
 		</list>
 		<list key="replacehistory">
+			<item value="m"/>
 			<item value="produto "/>
 			<item value="produto"/>
 			<item value="registrosVendas"/>

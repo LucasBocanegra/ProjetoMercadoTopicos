@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Teste_Alteração_RegistroDeVenda" project="controle-de-vendas" tests="19" started="19" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.031">
+    <testcase name="CTRVA10" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.014"/>
+    <testcase name="CTRVA11" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.002"/>
+    <testcase name="CTRVA12" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.001"/>
+    <testcase name="CTRVA13" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.001"/>
+    <testcase name="CTRVA14" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.001"/>
+    <testcase name="CTRVA15" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.0"/>
+    <testcase name="CTRVA16" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.001"/>
+    <testcase name="CTRVA17" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.001"/>
+    <testcase name="CTRVA18" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.0"/>
+    <testcase name="CTRVA19" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.001"/>
+    <testcase name="CTRVA20" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.0"/>
+    <testcase name="CTRVA1" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.001"/>
+    <testcase name="CTRVA2" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.001"/>
+    <testcase name="CTRVA3" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.0"/>
+    <testcase name="CTRVA4" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.002"/>
+    <testcase name="CTRVA5" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.002"/>
+    <testcase name="CTRVA6" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.001"/>
+    <testcase name="CTRVA8" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.0"/>
+    <testcase name="CTRVA9" classname="br.com.starcode.matheusTest.Teste_Alteração_RegistroDeVenda" time="0.002"/>
+  </testsuite>
+</testrun>

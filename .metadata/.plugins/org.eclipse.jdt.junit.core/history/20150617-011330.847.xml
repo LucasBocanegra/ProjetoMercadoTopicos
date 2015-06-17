@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Teste_Inclusão_Cliente" project="controle-de-vendas" tests="17" started="17" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.001">
+    <testcase name="C1" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C2" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C3" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C4" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C5" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C6" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C7" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C8" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C9" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C10" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C11" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C12" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.001"/>
+    <testcase name="C13" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C14" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C15" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C16" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+    <testcase name="C17" classname="br.com.starcode.bronzatoTest.Teste_Inclusão_Cliente" time="0.0"/>
+  </testsuite>
+</testrun>

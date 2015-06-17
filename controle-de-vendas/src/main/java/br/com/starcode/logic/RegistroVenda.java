@@ -60,7 +60,15 @@ public class RegistroVenda {
 			quantidadeItens = (n.length-3)/2;
 			setQuantidadeItens(quantidadeItens);
 			
-			for(int i = 3;i<n.length;i++){
+			//se tiver numero impar de cod produto, quantidade. ex. 0;4.0;1;5.0;2;2.0;7
+			if((n.length-3) % 2 != 0)
+				throw new RuntimeException();
+			
+			for(int i = 3;i<n.length;i=i+2){
+				if (Integer.parseInt(n[i]) < 0 ||
+						Double.parseDouble(n[i+1]) <0)
+					throw new RuntimeException();
+				
 				/*somente com o código do produto nao é possivel instanciar um produto
 				 * é necessário indicar os objs produtos, ou o obj Mercado para a partir dele conseguir o objs Produtos
 				 * */
@@ -94,7 +102,11 @@ public class RegistroVenda {
 			quantidadeItens = (n.length-3)/2; /*da string tirando os tres primeiros dados sobram os dados sobre os produtos*/
 			setQuantidadeItens(quantidadeItens);
 			
-			for(int i = 3;i<n.length;i=+2){
+			//se tiver numero impar de cod produto, quantidade. ex. 0;4.0;1;5.0;2;2.0;7
+			if((n.length-3) % 2 != 0)
+				throw new RuntimeException();
+			
+			for(int i = 3;i<n.length;i=i+2){
 				prods.add(m.getProduto(Integer.parseInt(n[i])));
 				qnts.add(Double.parseDouble(n[i+1]));
 			}
@@ -110,7 +122,7 @@ public class RegistroVenda {
 	}
 
 	public void setNumero(int numero) throws RuntimeException{
-		if(numero > 0)
+		if(numero >= 0)
 			this.numero = numero;
 		else
 			throw new RuntimeException();
@@ -122,13 +134,18 @@ public class RegistroVenda {
 
 	public void setData(String data)throws RuntimeException {
 		
-		DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");  		
-	    df.setLenient (false); // aqui o pulo do gato  
-	    try {
-			this.data =  df.parse(data);
-		} catch (Exception e) {
-			throw new RuntimeException();
-		}
+		DateFormat df = new SimpleDateFormat ("dd/MM/yyyy"); 
+	    df.setLenient (false); // aqui o pulo do gato    
+	    
+	    if(data.length() == 10){
+		    try {
+				this.data =  df.parse(data);
+			} catch (Exception e) {
+				throw new RuntimeException();
+			}
+	    }
+	    else
+	    	throw new RuntimeException();
 	}
 
 	public int getQuantidadeItens() throws RuntimeException{
@@ -156,8 +173,11 @@ public class RegistroVenda {
 					numOk = false;
 			}
 			//se todas as quantidades forem maiores que 0
-			if(numOk == true)
+			if(numOk == true){
+				//this.quantidades.clear();
 				this.quantidades.addAll(quantidades);
+				
+			}
 			else 
 				throw new RuntimeException();
 		}else
@@ -185,27 +205,28 @@ public class RegistroVenda {
 		return produtos;
 	}
 
-	public void setProdutos(ArrayList<Produto> produtos) throws RuntimeException {
+	public void setProdutos(ArrayList<Produto> p) throws RuntimeException {
 		this.produtos = new ArrayList<Produto>();
 		boolean prodOk = true;
 				
-		if(produtos.size() ==  quantidades.size()){
-			for(int i=0; i< produtos.size();i++)
+		if(p.size() ==  quantidades.size()){
+			for(int i=0; i< p.size();i++)
 			{
-				/* Se existe produto em estoque */
-				if(produtos.get(i).getEstoque() < quantidades.get(i)){
+				/* Se existe produto em estoque */					
+				if(p.get(i).getEstoque() < quantidades.get(i)){
 					prodOk = false;
 					break;
 				}
 			}
 			if(prodOk == true)
 			{
-				atualizaEstoque(produtos);
-				this.produtos.addAll(produtos);					
+				atualizaEstoque(p);
+				this.produtos.addAll(p);					
 			}
 			else
 				throw new RuntimeException();
-		}		
+		}else
+			throw new RuntimeException();
 	}	
 	
 	/*Este método verifica alem de possuir produto em estoque ele também verifica se o produto pertence ao mercado*/

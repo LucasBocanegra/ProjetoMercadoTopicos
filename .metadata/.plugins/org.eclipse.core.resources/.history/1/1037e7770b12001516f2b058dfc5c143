@@ -1,0 +1,39 @@
+package br.com.starcode.bronzatoTest;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import br.com.starcode.logic.Produto;
+
+public class Teste_Cálculo_de_Faturamento_em_um_Determinado_Mês{
+
+	private Mercado mercado;
+	
+	@Test
+	public void Con1() {
+		assertEquals(mercado.calculaFaturamento(06),13,98);
+	}
+	
+	@Test
+	public void Con2() {
+		assertEquals(mercado.calculaFaturamento(00),-1);
+	}
+	
+	@Test
+	public void Con3() {
+	assertEquals(mercado.calculaFaturamento(13),-1);
+	}
+	
+	@Test
+	public void Con4() {
+	assertEquals(mercado.calculaFaturamento(0*),-1);
+	}
+	
+	@Test
+	public void Con5() {
+	assertEquals(mercado.calculaFaturamento(),-1);
+	}
+		
+}
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Teste_Alteração_Produto" project="controle-de-vendas" tests="23" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true">
+    <testcase name="CTPA1" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA2" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA3" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA4" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA5" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA6" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA7" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA8" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA9" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA10" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA11" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA12" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA13" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA14" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA15" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA16" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA17" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA18" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA19" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA20" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA21" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA22" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+    <testcase name="CTPA23" classname="br.com.starcode.matheusTest.Teste_Alteração_Produto" incomplete="true"/>
+  </testsuite>
+</testrun>

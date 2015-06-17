@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Teste_Cálculo_de_Faturamento_em_um_Determinado_Mês" project="controle-de-vendas" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.starcode.bronzatoTest.Teste_Cálculo_de_Faturamento_em_um_Determinado_Mês" time="0.0">
+    <testcase name="Con1" classname="br.com.starcode.bronzatoTest.Teste_Cálculo_de_Faturamento_em_um_Determinado_Mês" time="0.0"/>
+    <testcase name="Con2" classname="br.com.starcode.bronzatoTest.Teste_Cálculo_de_Faturamento_em_um_Determinado_Mês" time="0.0"/>
+    <testcase name="Con3" classname="br.com.starcode.bronzatoTest.Teste_Cálculo_de_Faturamento_em_um_Determinado_Mês" time="0.0"/>
+  </testsuite>
+</testrun>

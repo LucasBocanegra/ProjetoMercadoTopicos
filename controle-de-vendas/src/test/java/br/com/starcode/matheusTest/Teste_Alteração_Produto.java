@@ -1,0 +1,142 @@
+package br.com.starcode.matheusTest;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import br.com.starcode.logic.Produto;
+
+public class Teste_Alteração_Produto{
+
+	private Produto produto;
+	
+	@Before
+	public void Criacao() {
+		produto = new Produto(0,"Arroz",5.00,6.99,"Un",10,1);
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA1() {
+		produto.setCodigo(-1);
+	}
+	
+
+	@Test(expected = Exception.class)
+	public void CTPA2() {
+		produto.setDescricao("AB");
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA3() {
+		produto.setDescricao("Abcdefghijklmnopqrstuvwxyz123456789abcdefghijklmnopqrstuvwxyzabcdefg");
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA4() {
+		produto.setDescricao("*Arroz");
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA5() {
+		produto.setPrecoVenda(-6.99);
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA6() {
+		produto.setPrecoVenda(4.00);
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA7() {
+		produto.setUnidade("ABC");
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA8() {
+		produto.setUnidade("12");
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA9() {
+		produto.setEstoque(-1);
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA10() {
+		produto.setStatus(3);
+	}
+	
+	@Test()
+	public void CTPA11() {
+		produto.setEstoque(0);
+		produto.setStatus(0);
+
+	}
+	
+	@Test
+	public void CTPA12() {
+		produto.setEstoque(0);
+		produto.setStatus(1);
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA13() {
+		produto.setDescricao("");
+	}
+	
+	@Test()
+	public void CTPA14() {
+		produto.setDescricao("AbcdefigAbcdefigAbcdefigAbcdefigAbcdefigAbcdefigAbcdefigabcdefig");
+		assertEquals(produto.getCodigo(), 0);
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA15() {
+		produto.setDescricao("AbcdefigAbcdefigAbcdefigAbcdefigAbcdefigAbcdefigAbcdefigabcdefigh");
+	}
+	
+	@Test()
+	public void CTPA16() {
+		produto.setPrecoCompra(0.0);	
+	}
+	@Test(expected = Exception.class)
+	public void CTPA17() {
+		produto.setPrecoCompra(-0.001);
+	}
+	
+	@Test()
+	public void CTPA18() {
+		produto.setPrecoCompra(0.01);
+		produto.setPrecoVenda(0.01);
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA19() {
+		produto.setUnidade("U");
+	}
+	
+	@Test()
+	public void CTPA20() {
+		produto.setEstoque(0.00);
+		produto.setStatus(0);
+		assertEquals(produto.getStatus(),0);
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA21() {
+		produto.setEstoque(-0.01);
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA22() {
+		produto.setDescricao("");
+	}
+	
+	@Test(expected = Exception.class)
+	public void CTPA23() {
+		produto.setUnidade("");
+	}
+		
+	
+}
+
